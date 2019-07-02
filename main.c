@@ -10,8 +10,10 @@
 //To do: Criar funcao que gera grafos sem ciclo.
 
 const int number_of_vertices = 10;
-const int percentual_connectivity = 20;
+const int percentual_connectivity = 100;
 const int DEBUG = 0;
+const int number_of_tests = 1;
+const int print_ways = 0;
 
 int main(){
 	clock_t t[2];
@@ -28,7 +30,7 @@ int main(){
 	printf("\n2) Teste de tempo para busca em largura\n");
 	printf("Caminhos em cada busca: \n\n");
 	aver = 0.0;
-	for(int i=1; i <= 30; i++){
+	for(int i=1; i <= number_of_tests; i++){
 		t[0] = clock();
 		BFS(graph, i%number_of_vertices);
 		t[1] = clock();
@@ -43,7 +45,7 @@ int main(){
 	printf("3) Teste de tempo para busca em profundidade\n");
 	printf("Caminhos em cada busca: \n\n");
 	aver = aver1 = 0.0;
-	for(int i=1; i <= 30; i++){
+	for(int i=1; i <= number_of_tests; i++){
 		//DFS with stack
 		t[0] = clock();
 		DFS_Stack(graph, i%number_of_vertices);
@@ -73,7 +75,8 @@ int main(){
 	//4) Todos os caminhos usando busca em profundidade – mostrar todas as sequências de vértices geradas. Usar um grafo de tamanho adequado ao exercício.
 	printf("4) Mostrar todos os possiveis caminhos no Grafo: \n");
 	printf("Caminhos: \n\n");
-	all_way_graph_caller(graph);
+	if(print_ways)
+		all_way_graph_caller(graph);
 	printf("\n");
 
 	/*	 5) Determinar se um dado grafo possui ciclo, usando busca em profundidade. 

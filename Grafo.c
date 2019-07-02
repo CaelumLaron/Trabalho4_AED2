@@ -1,6 +1,6 @@
 #include "./Lib/Grafo.h"
 
-const int print_ele = 0;
+const int print_ele = 0, print_niv = 1;
 
 void create_graph(int number_componentes, int per_connectivity, int number_vertices, Graph *graph){
 	per_connectivity = per_connectivity%101;
@@ -143,26 +143,38 @@ void DFS_Recursive(int cur, Graph *graph, int *vis){
 
 void BFS(Graph graph, int start){
 	int *vis = (int*)malloc(sizeof(int) * graph.number_vertices);
+	int *d = (int*)malloc(sizeof(int) * graph.number_vertices);
 	for(int i=0; i<graph.number_vertices; i++)
-		vis[i] = -1;
+		vis[i] = -1, d[i] = 0;
 	Queue queue;
 	new_queue(&queue);
 	push_queue(start, &queue);
 	vis[start] = 1;
+	d[start] = 0;
+	int niv = 0;
+	if(print_niv)
+		printf("Nivel %d: ", niv);
 	while(!queue_empty(queue)){
 		int cur = front_queue(queue);
 		if(print_ele)
 			printf("%d ", cur);
+		if(print_niv && niv == d[cur])
+			printf("%d ", cur);
+		else if(print_niv){
+			niv++;
+			printf("\nNivel %d: %d ", niv, cur);
+		}
 		pop_queue(&queue);
 		for(Element *it = graph.adjList[cur].first; it != NULL; it = it->prox){
 			int act = it->data;
 			if(vis[act] == -1){
+				d[act] = d[cur] + 1;
 				vis[act] = 1;
 				push_queue(act, &queue);
 			}
 		}
 	}
-	if(print_ele)
+	if(print_ele || print_niv)
 		printf("\n");
 }
 
