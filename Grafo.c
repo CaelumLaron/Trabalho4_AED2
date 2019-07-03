@@ -1,6 +1,6 @@
 #include "./Lib/Grafo.h"
 
-const int print_ele = 0, print_niv = 1;
+const int print_ele = 1, print_niv = 1;
 
 void create_graph(int number_componentes, int per_connectivity, int number_vertices, Graph *graph){
 	per_connectivity = per_connectivity%101;
@@ -156,8 +156,8 @@ void BFS(Graph graph, int start){
 		printf("Nivel %d: ", niv);
 	while(!queue_empty(queue)){
 		int cur = front_queue(queue);
-		if(print_ele)
-			printf("%d ", cur);
+		//if(print_ele)
+		//	printf("%d ", cur);
 		if(print_niv && niv == d[cur])
 			printf("%d ", cur);
 		else if(print_niv){
