@@ -25,7 +25,7 @@ int main(){
 	printf("Grafo Criado\n");
 
 	//2) Busca em Largura – mostrar a árvore resultante do caminhamento; marcar tempo de execução para cada busca e a média das buscas.
-	printf("\n2) Teste de tempo para busca em largura\n");
+	/*printf("\n2) Teste de tempo para busca em largura\n");
 	printf("Caminhos em cada busca: \n\n");
 	aver = 0.0;
 	for(int i=1; i <= number_of_tests; i++){

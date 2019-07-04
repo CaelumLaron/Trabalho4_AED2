@@ -42,7 +42,7 @@ int main(){
 	printa a palavra Nivel.*/
 
 	//3) Busca em Profundidade – mostrar a sequência de vértices visitados; marcar tempo de execução para cada busca e a média das buscas.
-	printf("3) Teste de tempo para busca em profundidade\n");
+	/*printf("3) Teste de tempo para busca em profundidade\n");
 	printf("Caminhos em cada busca: \n\n");
 	aver = aver1 = 0.0;
 	for(int i=1; i <= number_of_tests; i++){
@@ -69,8 +69,8 @@ int main(){
 		chamadas de funcs no uso da versao a pilha.
 		Isso tambem cabe para a busca em largura!
 	*/
-	printf("\nTempo medio na busca em profundidade com pilha: %lf\n", aver/30.0);
-	printf("Tempo medio na busca em profundidade recursiva: %lf\n\n", aver1/30.0);
+	/*printf("\nTempo medio na busca em profundidade com pilha: %lf\n", aver/30.0);
+	printf("Tempo medio na busca em profundidade recursiva: %lf\n\n", aver1/30.0);*/
 
 	//4) Todos os caminhos usando busca em profundidade – mostrar todas as sequências de vértices geradas. Usar um grafo de tamanho adequado ao exercício.
 	printf("4) Mostrar todos os possiveis caminhos no Grafo: \n");
