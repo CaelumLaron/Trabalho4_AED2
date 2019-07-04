@@ -10,7 +10,7 @@
 //To do: Criar funcao que gera grafos sem ciclo.
 
 const int number_of_vertices = 10;
-const int percentual_connectivity = 100;
+const int percentual_connectivity = 20;
 const int DEBUG = 0;
 const int number_of_tests = 1;
 const int print_ways = 0;
@@ -32,7 +32,7 @@ int main(){
 	aver = 0.0;
 	for(int i=1; i <= number_of_tests; i++){
 		t[0] = clock();
-		BFS(graph, i%number_of_vertices);
+		BFS(graph, 0);
 		t[1] = clock();
 		if(DEBUG)
 			printf("Tempo na %d busca em largura: %lf\n", i, ((double)t[1] - t[0])/(CLOCKS_PER_SEC/1000));
@@ -40,6 +40,8 @@ int main(){
 	}
 	printf("\nTempo medio na busca em largura: %lf\n\n", aver/30.0);
 	
+	/*Devido ao alto custo de perfomance do printf, a busca em largura se torna muito mais lenta que a Dfs pois a cada mudança de nivel 
+	printa a palavra Nivel.*/
 
 	//3) Busca em Profundidade – mostrar a sequência de vértices visitados; marcar tempo de execução para cada busca e a média das buscas.
 	printf("3) Teste de tempo para busca em profundidade\n");
@@ -83,8 +85,10 @@ int main(){
 	 *		Testar diferentes grafos com e sem ciclos, de diversos tamanhos e graus de conectividade.
 	 */
 	printf("5) Determinar se um dado grafo possui ou nao ciclos: \n");
-	if(Finding_Cycles(agraph))
-		printf("Este grafo possui um ciclo\n");
+	if(Finding_Cycles(graph))
+		printf("Este grafo possui um ciclo.\n");
+	else
+		printf("Este grafo nao possui um ciclo.\n");
 
 	//FIM TRABALHO 4
 	return 0;
