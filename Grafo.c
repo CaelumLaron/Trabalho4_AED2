@@ -2,7 +2,7 @@
 
 const int print_ele = 1, print_niv = 1;
 
-void create_graph_connected(int per_connectivity, int number_vertices, Graph *graph){
+void create_graph_connected(int per_connectivity, int number_vertices, Graph *graph, int cycles){
 	per_connectivity = per_connectivity%101;
 	int newVert = (per_connectivity * number_vertices * (number_vertices - 1))/200;
 	graph->number_vertices = number_vertices;
@@ -15,6 +15,8 @@ void create_graph_connected(int per_connectivity, int number_vertices, Graph *gr
 	}
 	if(newVert < 1)
 		return;
+	if(cycles == 0)
+		newVert = number_vertices - 1;
 	for(int j=1; j < number_vertices && newVert > 0; j++){
 		for(int i=0; i<number_vertices && newVert > 0; i++){
 			if(i+j<number_vertices){

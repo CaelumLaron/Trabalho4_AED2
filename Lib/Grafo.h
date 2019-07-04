@@ -10,7 +10,7 @@ typedef struct Graph{
 	List *adjList;
 }Graph;
 
-void create_graph_connected(int per_connectivity, int number_vertices, Graph *graph);//Create a connected graph
+void create_graph_connected(int per_connectivity, int number_vertices, Graph *graph, int cycles);//Create a connected graph
 void create_graph_acyclic(int per_connectivity, int number_vertices, Graph *graph);//Create aa graph withour cycles
 void DFS_Stack(Graph graph, int start);//Dfs using stack instead recursive
 void DFS_Recursive_Caller(Graph graph, int start);//Recursive Dfs caller
