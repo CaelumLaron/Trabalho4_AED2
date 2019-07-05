@@ -8,7 +8,7 @@
 //gcc Grafo.c Fila.c Pilha.c Lista.c main.c -o main
 
 const int DEBUG = 0;
-const int number_of_tests = 30;
+const int number_of_tests = 30;//teste
 const int print_ways = 1;
 
 int main(){
