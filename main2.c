@@ -9,7 +9,7 @@
 
 const int DEBUG = 0;
 const int number_of_tests = 30;//teste
-const int print_ways = 1;
+const int print_ways = 1;//teste
 
 int main(){
 	int number_of_vertices = 10, percentual_connectivity = 20, cycles = 0;
